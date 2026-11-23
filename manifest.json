@@ -1,0 +1,11 @@
+{
+  "name": "Pets Music",
+  "short_name": "Pets Music",
+  "description": "Música y mixes para mascotas",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#090909",
+  "theme_color": "#090909",
+  "orientation": "portrait",
+  "icons": [{"src": "icon.png", "sizes": "512x512", "type": "image/png"}]
+}

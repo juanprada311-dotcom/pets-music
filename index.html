@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#121212">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pets Music">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <title>Pets Music</title>
+</head>
+<body>
+  <header class="top">
+    <div class="brand-mark">♫</div>
+    <div class="chips">
+      <button class="chip active" data-filter="all">Todo</button>
+      <button class="chip" data-filter="mix">Música</button>
+      <button class="chip" data-filter="station">Podcasts</button>
+      <button class="chip" data-filter="album">Álbumes</button>
+    </div>
+    <button class="icon-btn" id="search-open" aria-label="Buscar">⌕</button>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="paw">🐾</div>
+      <div><h1>Pets <span>Music</span></h1><p>Música para cada patita</p></div>
+    </section>
+
+    <section class="pet-shortcuts">
+      <button class="pet" data-pet="Karen"><img src="https://images.unsplash.com/photo-1513360371669-9adf2b9a5f5b?auto=format&fit=crop&w=160&q=80" alt="Gato"><b>Karen</b><span>›</span></button>
+      <button class="pet" data-pet="k.k"><img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=160&q=80" alt="Gato"><b>k.k</b><span>›</span></button>
+      <button class="pet" data-pet="lucy"><img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=160&q=80" alt="Perro"><b>lucy</b><span>›</span></button>
+      <button class="pet" data-pet="princess"><img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=160&q=80" alt="Perro"><b>princess</b><span>›</span></button>
+    </section>
+
+    <section class="section" data-section="mix">
+      <div class="section-head"><h2>Tus Mix más escuchados</h2><button class="more" data-expand="mix">Ver más ›</button></div>
+      <div class="cards" id="mixes">
+        <article class="music-card"><img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?auto=format&fit=crop&w=600&q=85" alt="Gato relajado"><div class="card-info"><b>Karen, lucy</b><small>Mix</small><button class="heart" aria-label="Favorito">♡</button></div><button class="play-float" data-play="Karen, lucy">▶</button></article>
+        <article class="music-card"><img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=85" alt="Gato dormido"><div class="card-info"><b>Doki, k.k</b><small>Mix</small><button class="heart" aria-label="Favorito">♡</button></div><button class="play-float" data-play="Doki, k.k">▶</button></article>
+        <article class="music-card"><img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=600&q=85" alt="Gato blanco"><div class="card-info"><b>princess, kuro</b><small>Mix</small><button class="heart" aria-label="Favorito">♡</button></div><button class="play-float" data-play="princess, kuro">▶</button></article>
+      </div>
+    </section>
+
+    <section class="section" data-section="station">
+      <div class="section-head"><h2>Estaciones recomendadas</h2><button class="more" data-expand="station">Ver más ›</button></div>
+      <div class="cards" id="stations">
+        <article class="music-card"><img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=600&q=85" alt="Huella"><div class="card-info"><b>Huella Feliz</b><small>Estación</small><button class="heart" aria-label="Favorito">♡</button></div><button class="play-float" data-play="Huella Feliz">▶</button></article>
+        <article class="music-card"><img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=600&q=85" alt="Atardecer"><div class="card-info"><b>Noches de Mascotas</b><small>Estación</small><button class="heart" aria-label="Favorito">♡</button></div><button class="play-float" data-play="Noches de Mascotas">▶</button></article>
+        <article class="music-card"><img src="https://images.unsplash.com/photo-1516734212186-a967f7b5f6b0?auto=format&fit=crop&w=600&q=85" alt="Perrito descansando"><div class="card-info"><b>Relax Pet</b><small>Estación</small><button class="heart" aria-label="Favorito">♡</button></div><button class="play-float" data-play="Relax Pet">▶</button></article>
+      </div>
+    </section>
+
+    <section class="section hidden" id="library-section">
+      <div class="section-head"><h2>Tu biblioteca</h2></div>
+      <div class="library-list" id="favorites-list"><p class="muted">Tus favoritos aparecerán aquí.</p></div>
+    </section>
+    <section class="section hidden" id="premium-section">
+      <div class="premium-panel"><div class="crown">♛</div><h2>Pets Premium</h2><p>Tu música, tu mundo, sin interrupciones.</p><ul><li>✓ Colección de favoritos</li><li>✓ Mix para cada mascota</li><li>✓ Experiencia personalizada</li></ul><button class="gold-btn" id="premium-info">Descubrir Premium</button></div>
+    </section>
+  </main>
+
+  <div class="player" id="player">
+    <img id="player-cover" src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?auto=format&fit=crop&w=120&q=80" alt="">
+    <div class="track"><b id="track-name">Flowers</b><small>Pets Music · Demo</small></div>
+    <button id="device" class="player-action" title="Dispositivos">▣</button>
+    <button id="player-toggle" class="play-main" aria-label="Reproducir">▶</button>
+    <div class="progress"><span id="progress-bar"></span></div>
+  </div>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-page="home"><span>⌂</span>Inicio</button>
+    <button class="nav-btn" data-page="search"><span>⌕</span>Buscar</button>
+    <button class="nav-btn" data-page="library"><span>▤</span>Tu biblioteca</button>
+    <button class="nav-btn" data-page="premium"><span>🐾</span>Premium</button>
+    <button class="nav-btn create" data-page="create"><span>＋</span>Crear</button>
+  </nav>
+
+  <dialog id="modal">
+    <div class="modal-top"><button class="close" id="modal-close">✕</button></div>
+    <div id="modal-content"></div>
+  </dialog>
+
+  <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(console.warn));
+    }
+  </script>
+</body>
+</html>
